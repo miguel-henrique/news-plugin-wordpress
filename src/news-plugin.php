@@ -24,19 +24,25 @@ if ( is_array( $response ) && ! is_wp_error( $response ) ) {
     print_r($body); */
 
     $data = json_decode($body);
-    $news_data = $data->article;
+    $news_data = $data->articles;
 
-    if ( ! is_wp_error($news_data)){
+    foreach ( $news_data as $news )
+    {
+	echo "title: $news->title - description: $news->description";
+    }
+
+    /* if ( ! is_wp_error($news_data)){
         echo '<ul>';
 
         foreach($news_data as $news){
             echo '<li>';
-             echo '<a nome: $news->title;
+             echo '<a title: $news->title;
             echo '</li>';
     }
 
     echo '</ul>'
-}
+} */
+
 }
 }
 add_action('wp_head', 'get_news' );
