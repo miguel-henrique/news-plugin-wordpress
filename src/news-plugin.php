@@ -28,20 +28,10 @@ if ( is_array( $response ) && ! is_wp_error( $response ) ) {
 
     foreach ( $news_data as $news )
     {
-	echo "title: $news->title - description: $news->description";
+
+
+    echo "description: $news->description";
     }
-
-    /* if ( ! is_wp_error($news_data)){
-        echo '<ul>';
-
-        foreach($news_data as $news){
-            echo '<li>';
-             echo '<a title: $news->title;
-            echo '</li>';
-    }
-
-    echo '</ul>'
-} */
 
 }
 }
