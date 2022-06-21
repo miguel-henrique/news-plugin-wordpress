@@ -29,8 +29,8 @@ if ( is_array( $response ) && ! is_wp_error( $response ) ) {
     foreach ( $news_data as $news )
     {
 
-
     echo "description: $news->description";
+    echo "<h1>Olá</h1>";
     }
 
 }
