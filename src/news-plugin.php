@@ -31,10 +31,9 @@ if ( is_array( $response ) && ! is_wp_error( $response ) ) {
 
 
     echo "<h1> $news->title</h1>";
-    echo "<img src="$new->urlToImage">"
     echo "<p> $news->description</p>";
     }
 
 }
 }
-add_action('wp_head', 'get_news' );
+add_action('wp_footer', 'get_news' );
