@@ -28,12 +28,10 @@ if ( is_array( $response ) && ! is_wp_error( $response ) ) {
 
     foreach ( $news_data as $news )
     {
-
-
-    echo "<h1> $news->title</h1>";
+    echo "<h1 style="color: blue"> $news->title</h1>";
     echo "<p> $news->description</p>";
     }
 
 }
 }
-add_action('wp_footer', 'get_news' );
+add_action('wp_header', 'get_news' );
