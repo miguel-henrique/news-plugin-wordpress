@@ -10,7 +10,7 @@
 
 function get_news() {
     /** @var array|WP_Error $response */
-$response = wp_remote_get( 'https://newsapi.org/v2/everything?q=${brasil}&apiKey=c6595ed7516847f4a77b8fc01f2f9e6f', array(
+$response = wp_remote_get( 'https://newsapi.org/v2/top-headlines?country=br&apiKey=c6595ed7516847f4a77b8fc01f2f9e6f', array(
     'timeout' => 20,
     'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:20.0) Gecko/20100101 Firefox/20.0'
   ) );
@@ -23,15 +23,20 @@ if ( is_array( $response ) && ! is_wp_error( $response ) ) {
     /* echo "<pre>";
     print_r($body); */
 
+
     $data = json_decode($body);
     $news_data = $data->articles;
 
     foreach ( $news_data as $news )
     {
-    echo "<h1 style="color: blue"> $news->title</h1>";
+
+    
+    echo "<h1> $news->title</h1>";
     echo "<p> $news->description</p>";
+    
+
     }
 
 }
 }
-add_action('wp_header', 'get_news' );
+add_action('wp_head', 'get_news' );
