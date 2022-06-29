@@ -8,6 +8,13 @@
  * Author URI: http://pluswebb.com/
  */
 
+
+
+$content = file_get_contents('style.css');
+header("Content-type: text/css");
+echo $content;
+
+
 function get_news() {
     /** @var array|WP_Error $response */
 $response = wp_remote_get( 'https://newsapi.org/v2/top-headlines?country=br&apiKey=c6595ed7516847f4a77b8fc01f2f9e6f', array(
@@ -29,14 +36,15 @@ if ( is_array( $response ) && ! is_wp_error( $response ) ) {
 
     foreach ( $news_data as $news )
     {
-
-    
+     
+    echo "<section>";
     echo "<h1> $news->title</h1>";
     echo "<p> $news->description</p>";
-    
 
     }
 
 }
+
 }
-add_action('wp_head', 'get_news' );
+
+add_shortcode('news', 'get_news' );
