@@ -9,6 +9,8 @@
  */
 
 
+echo "<section>";
+
 $content = file_get_contents('style.css');
 header("Content-type: text/css");
 echo $content;
@@ -35,11 +37,11 @@ if ( is_array( $response ) && ! is_wp_error( $response ) ) {
 
     foreach ( $news_data as $news )
     {
-    echo "<section>";
+    echo "<div>";
     echo "<h1> $news->title</h1>";
     echo "<p> $news->description</p>";
     echo '<img src="' . $news->urlToImage . '"/>';
-    echo "</section>";
+    echo "</div>";
 
     }
 
