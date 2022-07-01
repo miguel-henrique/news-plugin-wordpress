@@ -9,8 +9,6 @@
  */
 
 
-echo "<div>";
-
 $content = file_get_contents('style.css');
 header("Content-type: text/css");
 echo $content;
